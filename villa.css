@@ -1,0 +1,58 @@
+section h1 
+{
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+section h1:hover 
+{
+    color:#f67411;
+    transition:0.5s;
+}
+section h2
+{
+    border-bottom:3px solid #f67411;
+}
+section b:hover 
+{
+    color:red;
+    transition:0.3s;
+}
+section
+{
+    width:800px;
+    margin:50px;
+}
+section p
+{
+    font-size:20px;
+}
+section img
+{
+    margin:10px;
+    width:800px;
+}
+.line
+{
+    border-bottom:3px solid #f67411;
+}
+.dat :hover 
+{
+    
+    transition:0.5s;
+    font-size:15px;
+}
+.dat{
+    width: 100px;
+    height:30px;
+}
+button a {
+    font-size: 17px;
+
+}
+button{
+    background-color:#d16715;
+}
+h4{
+    color:#f67411;
+}
