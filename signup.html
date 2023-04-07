@@ -1,144 +1,281 @@
 <!DOCTYPE html>
 <html>
-    <head>
 
-        <link rel="stylesheet" href="booking.css">
-        <script>
-    function submitForm() {
-        alert("Đăng kí thành công , cảm ơn quý khách");
-        alert("Cảm ơn quý khách đã tin tưởng và ủng hộ dịch vụ, ở lần đặt sau quý khách vui lòng nhập voucher (coTuxinhdep) để được giảm 10%.");
+<head>
+    <title>
+        WEBVILLA.COM
+    </title>
+    <link rel="stylesheet" href="giaodien.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="1.gif">
+    <script lang="javascrip">
+        function check() {
+
+            if (myform.email.value == "") {
+
+                alert("Vui Lòng nhập địa chỉ email của bạn!")
+            }
+            else if (myform.email.value + "@gamil.com") {
+                alert("Chúng tôi sẽ gửi những ưu đãi đến email của bạn.")
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <header class="main">
+        <div class="nav">
+            <div class="icon">
+                <h2 class="logo"><img src="1.gif" alt="">
+                    <br> WEBVILLA.COM
+                </h2>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="index.html"> Trang Chủ</a></li>
+                    <li><a href="Villa.html"> Villa</a></li>
+                    <li><a href="gioithieu.html"> Giới thiệu</a></li>
+                </ul>
+
+            </div>
+            <div class="search">
+                <input type="text" id="search-input" placeholder="Tìm kiếm Villa..." />
+                <ul id="search-results"></ul>
+            </div>
+
+            <script>
+                const villas = [
+                    {
+                        name: "Villa Hoang Thu",
+                        domainName: "Villahoangthu"
+                    },
+                    {
+                        name: "Villa Anh Duong",
+                        domainName: "Villaanhduong"
+                    },
+                    {
+                        name: "Villa Bach Ma",
+                        domainName: "Villabachma"
+
+                    },
+                    {
+                        name: "Villa Mimosa",
+                        domainName: "Villamimosa"
+
+                    },
+
+                    {
+                        name: "Villa Nhat Lam",
+                        domainName: "Villanhatlam"
+
+                    },
+
+                    {
+                        name: "Villa PanSy",
+                        domainName: "Villapansy"
+
+                    },
+
+                    {
+                        name: "Villa Pot2",
+                        domainName: "Villapot2"
+
+                    },
+
+                    {
+                        name: "Villa Queen",
+                        domainName: "Villaqueen"
+                    },
+
+                    {
+                        name: "Villa Sao Khue",
+                        domainName: "Villasaokhue"
+                    },
+
+                    {
+                        name: "Villa Thach Lam",
+                        domainName: "Villathachlam"
+                    },
+
+                    {
+                        name: "Villa Venus",
+                        domainName: "Villavenus"
+                    },
+
+
+                ];
+
+                function searchVillas(searchTerm) {
+                    return villas.filter(villa => villa.name.toLowerCase().includes(searchTerm.toLowerCase()));
+                }
+
+                const searchInput = document.querySelector("#search-input");
+                const searchResults = document.querySelector("#search-results");
+
+                searchInput.addEventListener("input", () => {
+                    const searchTerm = searchInput.value;
+                    const results = searchVillas(searchTerm);
+
+                    searchResults.innerHTML = "";
+
+                    results.forEach(result => {
+                        const li = document.createElement("li");
+                        li.textContent = result.name;
+                        li.addEventListener("click", () => {
+                            window.location.href = `https://minhtridev2004.github.io/webvilla.com/${result.domainName}.html `;
+                        });
+                        searchResults.appendChild(li);
+                    });
+                });
+                document.body.addEventListener("click", event => {
+    if (!searchInput.contains(event.target) && !searchResults.contains(event.target))   {
+        searchInput.value = "";
+        searchResults.innerHTML = "";
     }
-</script>
-    </head>
-    <body>
-            <table class="id" align="center">
-                <tr>
-                    <th colspan="2">
-                        <center> ĐĂNG KÍ NHẬN VILLA</center>
-                    </th>
-                </tr>
-                <form onsubmit="submitForm()">   
-                <tr>
-                    <Td>
-                        <fieldset>
-                            <legend><b> Thông tin cá nhân</b></legend>
-                            <table>
-                                <tr>
-                                    <th> Họ và Tên</th>
-                                    <td> <input type="text" placeholder="Nguyen Van A"></td>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        Ngày sinh
-                                        
-                                    </th>
-                                    <td>
-                                        <input type="date">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        Căn cước công dân:
-                                    </th>
-                                    <td>
-                                        <input type="text" placeholder="0872xxxxxx">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        Thông tin thẻ ngân hàng:
-                                        
-                                        
-                                    </th>
-                                    <td>
-                                        <input type="text" placeholder="Tên ngân hàng" style="margin-top: 10px">
-                                        <br>
-                                        <input type="text" placeholder="Tên tài khoản" style="margin-top: 10px">
-                                        <br>
-                                        <input type="text" placeholder="Số Thẻ" style="margin-top: 10px">
-                                        <br>
-                                        <input type="day"  placeholder="Ngày hết hạn" style="margin-top: 10px">
-                                        <br>
-                                        <input type="number" placeholder="Mã cvv" style="margin-top: 10px">
-
-                                        
-                                    </td>
-                               
-                                <tr>
-                                   <th>
-                                        Điện thoại:                              
-                                   </th>
-                                   <td>
-                                        <input typ="tel" placeholder="09xxxxxx">
-                                   </td>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        Email:
-                                    </th>
-                                    <td>
-                                        <input typ="telephone" placeholder="nguyena@gmail.com">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>Tên Villa:</th>
-                                    <td>
-                                        <select>
-                                            <option>Villa Hoang Thu</option>
-                                            <option>Villa Anh Duong</option>
-                                            <option>Villa Bach Ma</option>
-                                            <option>Villa Kim Cuong</option>
-                                            <option>Villa Mimosa</option>
-                                            <option>Villa Nhat Lam</option>
-                                            <option>Villa PanSy</option>
-                                            <option>Villa Pot2</option>
-                                            <option>Villa Queen</option>
-                                            <option>Villa Sao Khue</option>
-                                            <option>Villa Thach Lam</option>
-                                            <option>Villa Venus</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        Số ngày ở :
-                                    </th>
-                                    <td>
-                                        <select>
-                                            <option>1 giá (1.600.000 vnd)</option>
-                                            <option>2 giá (3.200.000 vnd)</option>
-                                            <option>3 giá (4.800.000 vnd)</option>
-                                            <option>4 giá (6.400.000 vnd)</option>
-                                            <option>5 giá (8.000.000 vnd)</option>
-                                            <option>6 giá (9.600.000 vnd)</option>
-                                            <option>7 giá (11.200.000 vnd)</option>
-                                            <option>8 giá (12.800.000 vnd)</option>
+});
+            </script>
+        </div>
+    </header>
 
 
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>Voucher :</th>
-                                    <td>
-                                        <input type="text">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2" align="center">
-                                        <input type="submit" value="Xác Nhận">
-                                        <input type="reset" value="Hủy">
-                                    </td>
-                                </tr>
-                            <tr>
-                            </form>
-                                <td colspan="2">
-                                    <h4> *Lưu ý: Quý khách vui lòng đầy đủ thông tin</h4>
-                                    <h5>*Khi nhận phòng quý khách vui lòng đưa các thông tin như: Họ và tên, căn cước công dân,<br>mã villa để nhân viên có thể kiểm tra nhanh thủ tục cho quý khách.</h5>
-                                </td>
-                            </tr>
-            </table>
-        </form>
-        
 
-    </body>    
+    <article>
+       
+
+        <section>
+            <form onsubmit="submitForm()" class="id">   
+                <table >
+                    <tr>
+                        <th colspan="2">
+                            <center> ĐĂNG KÍ NHẬN VILLA</center>
+                        </th>
+                    </tr>
+                    <tr>
+                        <Td>
+                            <fieldset>
+                                <legend><b> Thông tin cá nhân</b></legend>
+                                <table>
+                                    <tr>
+                                        <th> Họ và Tên</th>
+                                        <td> <input type="text" placeholder="Nguyen Van A"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            Ngày sinh
+                                            
+                                        </th>
+                                        <td>
+                                            <input type="date">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            Căn cước công dân:
+                                        </th>
+                                        <td>
+                                            <input type="text" placeholder="0872xxxxxx">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            Thông tin thẻ ngân hàng:
+                                            
+                                            
+                                        </th>
+                                        <td>
+                                            <input type="text" placeholder="Tên ngân hàng" style="margin-top: 10px">
+                                            <br>
+                                            <input type="text" placeholder="Tên tài khoản" style="margin-top: 10px">
+                                            <br>
+                                            <input type="text" placeholder="Số Thẻ" style="margin-top: 10px">
+                                            <br>
+                                            <input type="day"  placeholder="Ngày hết hạn" style="margin-top: 10px">
+                                            <br>
+                                            <input type="number" placeholder="Mã cvv" style="margin-top: 10px">
+    
+                                            
+                                        </td>
+                                   
+                                    <tr>
+                                       <th>
+                                            Điện thoại:                              
+                                       </th>
+                                       <td>
+                                            <input typ="tel" placeholder="09xxxxxx">
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            Email:
+                                        </th>
+                                        <td>
+                                            <input typ="telephone" placeholder="nguyena@gmail.com">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Tên Villa:</th>
+                                        <td>
+                                            <select>
+                                                <option>Villa Hoang Thu</option>
+                                                <option>Villa Anh Duong</option>
+                                                <option>Villa Bach Ma</option>
+                                                <option>Villa Kim Cuong</option>
+                                                <option>Villa Mimosa</option>
+                                                <option>Villa Nhat Lam</option>
+                                                <option>Villa PanSy</option>
+                                                <option>Villa Pot2</option>
+                                                <option>Villa Queen</option>
+                                                <option>Villa Sao Khue</option>
+                                                <option>Villa Thach Lam</option>
+                                                <option>Villa Venus</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            Số ngày ở :
+                                        </th>
+                                        <td>
+                                            <select>
+                                                <option>1 giá (1.600.000 vnd)</option>
+                                                <option>2 giá (3.200.000 vnd)</option>
+                                                <option>3 giá (4.800.000 vnd)</option>
+                                                <option>4 giá (6.400.000 vnd)</option>
+                                                <option>5 giá (8.000.000 vnd)</option>
+                                                <option>6 giá (9.600.000 vnd)</option>
+                                                <option>7 giá (11.200.000 vnd)</option>
+                                                <option>8 giá (12.800.000 vnd)</option>
+    
+    
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Voucher :</th>
+                                        <td>
+                                            <input type="text">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" align="center" style="margin:30px;">
+                                            <input type="submit" value="Xác Nhận">
+                                            <input type="reset" value="Hủy">
+                                        </td>
+                                    </tr>
+                                <tr>
+                                </form>
+                                    <td colspan="2">
+                                        <h4> *Lưu ý: Quý khách vui lòng đầy đủ thông tin</h4>
+                                        <h5>*Khi nhận phòng quý khách vui lòng đưa các thông tin như: Họ và tên, căn cước công dân,<br>mã villa để nhân viên có thể kiểm tra nhanh thủ tục cho quý khách.</h5>
+                                    </td>
+                                </tr>
+                </table>
+            </form>
+        </section>
+
+
+    </article>
+
+
+</html>
