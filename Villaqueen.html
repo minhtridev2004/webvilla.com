@@ -129,6 +129,12 @@
                                     searchResults.appendChild(li);
                                 });
                             });
+                            document.body.addEventListener("click", event => {
+    if (!searchInput.contains(event.target) && !searchResults.contains(event.target)) {
+        searchInput.value = "";
+        searchResults.innerHTML = "";
+    }
+});
                         </script>
             </header>
             
