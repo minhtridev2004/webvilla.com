@@ -67,7 +67,7 @@ a
 .menu ul li a
 {
     text-decoration: none;
-    color:#FFD154;
+    color: rgb(193, 108, 10);
     font-family: Arial;
     font-weight: bold; 
 }
@@ -82,23 +82,6 @@ a
     margin-top: 30px;
     width:330px;
     float:right;
-}
-.sr
-{
-    display:none;
-    font-family: 'Times New Roman';
-    width: 200px;
-    height: 30px;
-    background:transparent;
-    border:1px solid #201616;
-    margin-top: 13px;
-    color:#fff;
-    border-right: none;
-    font-size: 16px;
-    float: left;
-    padding: 10px;
-    border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px;
 }
 .search:hover .sr 
 {
@@ -235,6 +218,27 @@ footer table td input
 footer table td button
 {
     width:100px;
+}
+
+
+#search-results
+{
+    float:right;
+    margin-right: 20px;
+    list-style-type: none;
+    cursor: pointer;
+    
+}
+#search-input{
+    border-radius: 15px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-left: 80%;
+    width: 250px;
+    height: 30px;
+    cursor: pointer;
+
+    
 }
 
 

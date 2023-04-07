@@ -41,9 +41,95 @@
                         </ul>
                         
                     </div>
-                    <div class="search">
-                        <input type="search" class="sr"placeholder="Type to text">
-                        <button class="btn"> Search <i class="fa fa-search"></i></button>
+                    <div>
+                        <input type="text" id="search-input" placeholder="Tìm kiếm Villa..." />
+                        <ul id="search-results"></ul>
+            
+                        <script>
+                            const villas = [
+                                {
+                                    name: "Villa Hoang Thu",
+                                    domainName: "Villahoangthu"
+                                },
+                                {
+                                    name: "Villa Anh Duong",
+                                    domainName: "Villaanhduong"
+                                },
+                                {
+                                    name: "Villa Bach Ma",
+                                    domainName: "Villabachma"
+            
+                                },
+                                {
+                                    name: "Villa Mimosa",
+                                    domainName: "Villamimosa"
+            
+                                },
+            
+                                {
+                                    name: "Villa Nhat Lam",
+                                    domainName: "Villanhatlam"
+            
+                                },
+            
+                                {
+                                    name: "Villa PanSy",
+                                    domainName: "Villapansy"
+            
+                                },
+            
+                                {
+                                    name: "Villa Pot2",
+                                    domainName: "Villapot2"
+            
+                                },
+            
+                                {
+                                    name: "Villa Queen",
+                                    domainName: "Villaqueen"
+                                },
+            
+                                {
+                                    name: "Villa Sao Khue",
+                                    domainName: "Villasaokhue"
+                                },
+            
+                                {
+                                    name: "Villa Thach Lam",
+                                    domainName: "Villathachlam"
+                                },
+            
+                                {
+                                    name: "Villa Venus",
+                                    domainName: "Villavenus"
+                                },
+            
+            
+                            ];
+            
+                            function searchVillas(searchTerm) {
+                                return villas.filter(villa => villa.name.toLowerCase().includes(searchTerm.toLowerCase()));
+                            }
+            
+                            const searchInput = document.querySelector("#search-input");
+                            const searchResults = document.querySelector("#search-results");
+            
+                            searchInput.addEventListener("input", () => {
+                                const searchTerm = searchInput.value;
+                                const results = searchVillas(searchTerm);
+            
+                                searchResults.innerHTML = "";
+            
+                                results.forEach(result => {
+                                    const li = document.createElement("li");
+                                    li.textContent = result.name;
+                                    li.addEventListener("click", () => {
+                                        window.location.href = `https://minhtridev2004.github.io/webvilla.com/${result.domainName}.html `;
+                                    });
+                                    searchResults.appendChild(li);
+                                });
+                            });
+                        </script>
                     </div>
                 </div>
             </header>
@@ -103,7 +189,7 @@
                         <h1 class="line"> VILLA KIM CƯƠNG, LONG CUNG, VŨNG TÀU</h1>
                         <img src="https://chothuevilla.vn/wp-content/uploads/2020/10/z2102125416616_6a4a08e957d25bc1e8d31245ea80509d.jpg" alt="">
                         <p>
-                            <b> HOTLINE TƯVẤN MIỄN PHÍ 24/7: 0708.547.666 (có zalo, viber)</b><br><br>
+                            <b> HOTLINE TƯ VẤN MIỄN PHÍ 24/7: 0708.547.666 (có zalo, viber)</b><br><br>
                             <p>
                                 Villa Kim Cương nổi tiếng là 1 địa điểm nghỉ dưỡng gây “nghiện” du khách khi tới thành phố Vũng Tàu thơ mộng này. Với vị trí đắc địa nằm trong Khu biệt thự Thanh Bình, diện tích sử dụng hơn 500m2 với không gian sang trọng, thoáng mát, bình yên không khỏi làm nhớ thương cho du khách.  villa Kim Cương là địa điểm lưu trú lý tưởng cho đoàn khách gia đình, công ty, đội nhóm muốn có không gian riêng tư để tổ chức sự kiện, team biulding, sinh nhật, đám cưới…
                                 <br><br>
@@ -139,6 +225,7 @@
                                 <a href="https://www.instagram.com/?hl=en" class="fa fa-instagram" style="color:white;">:instgram</a><br>
                                 
                                 <a href="" style="color:white;"> E-mail: webvillavn@gmail.com </a> <br>
+                                <a href="" style="color:white;">Hotline:0708.547.666 </a>
                             </div>
                         </td>
                         <td>
